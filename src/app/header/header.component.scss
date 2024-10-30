@@ -1,4 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: flex;
+}
+
 div img {
-    height: 84vh;
+    height: 90vh;
     width: 100%;
+    object-fit: cover;
 }
