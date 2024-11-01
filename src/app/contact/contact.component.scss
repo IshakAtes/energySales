@@ -2,22 +2,11 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #083049;
 }
 
-section div {
+.shopHoursContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    img {
-        width: 120px;
-    }
-    h3 {
-        color: #fff;
-    }
-    span {
-        color: #fff;
-    }
 }
