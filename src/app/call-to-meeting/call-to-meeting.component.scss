@@ -1,3 +1,4 @@
+@import url(./../../styles.scss);
 section {
     background-color: #083049;
     padding: 100px 0;
@@ -9,10 +10,13 @@ section {
 
 section h2 {
     color: #fff;
+    font-family: "Passion One", sans-serif;
 }
 
 section p {
     color: #fff;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
 }
 
 section button {
