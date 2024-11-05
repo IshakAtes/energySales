@@ -1,7 +1,7 @@
 @import url(./../../styles.scss);
 section {
     background-color: #083049;
-    padding: 100px 0;
+    padding: 100px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,14 +17,104 @@ section p {
     color: #fff;
     font-family: poppins, sans-serif;
     font-size: 16px;
+    margin-top: 24px;
 }
 
-section button {
-    color: #000;
-    padding: 20px 60px;
-    text-decoration: none;
-    color: #083049;
-    background-color: #ffff01;
+// section button {
+//     color: #000;
+//     padding: 20px 60px;
+//     text-decoration: none;
+//     color: #083049;
+//     background-color: #ffff01;
+//     border: none;
+//     border-radius: 10px;
+// }
+
+section div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+section img {
+    position: absolute;
+    width: 60%;
+    height: 100px;
+}
+
+section h2 {
+    z-index: 2;
+    color: #F32013;
+    text-shadow: 0px 0px 2px rgba(242,250,27,1);
+}
+
+
+
+
+// button
+/* From Uiverse.io by abrahamcalsin */ 
+button {
+    margin-top: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #F2FA1B;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.8em;
+}
+
+button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #F32013;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #183153;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover span {
+    color: #fff;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

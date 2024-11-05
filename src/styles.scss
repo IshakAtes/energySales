@@ -3,11 +3,13 @@
 @import 'tailwindcss/utilities';
 
 /* You can add global styles to this file, and also import other style files */
-$primary-color: #fee100; // Blau
-$secondary-color: #032c3e; // Grün
-$accent-color: #ffff01; // Rot
-$background-color: #083049; // Hellgrau
-$text-color: #ffffff; // Dunkelgrau
+$primary-color: #fee100; // darkGelb
+$secondary-color: #032c3e; // hellBlau
+$accent-color: #ffff01; // gelb
+$background-color: #083049; // dunkelBlau
+$text-color: #ffffff; // white
+$danger-red: #F32013; // Red
+$text-marker: #F2FA1B; // highlighter
 
 body {
     margin: 0;
