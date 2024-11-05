@@ -1,9 +1,13 @@
 nav {
     background-color: #083049;
     padding: 0 100px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav img {
-    height: 120px;
     width: auto;
+    height: 80px;
 }
