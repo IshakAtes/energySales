@@ -10,12 +10,58 @@ section {
 .headline {
     color: #ffff01;
     // text-decoration: underline #F32013;
+    text-shadow: 0px 0px 9px rgb(0, 0, 0);
 }
 
 .redUnderline {
     text-decoration: underline #F32013;
 }
 
+
+
+
+// Whatsapp
+  
+.hover-image {
+    width: 80px;
+    height: 80px;
+
+    &:hover {
+        content: url('/assets/img/sozial (3).png');
+    }
+}
+
+.whatsappCt {
+    min-width: fit-content;
+}
+
+
+.mailCt {
+    position: relative;
+    min-height: 80px;
+    min-width: 80px;
+
+    &:hover {
+        .mailMarker{
+            content: url('/assets/img/sozial (6).png')
+        }
+        svg {
+            stroke: white;
+        }
+    }
+
+    .mailMarker {
+        width: 100%;
+        height: 100%;
+    }
+    svg {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
 
 
 
