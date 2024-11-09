@@ -10,5 +10,8 @@ import { ContactComponent } from '../contact/contact.component';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  hoveringFB = false;
+  hoveringInsta = false;
+  hoveringYT = false;
 
 }

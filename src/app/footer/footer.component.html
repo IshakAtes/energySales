@@ -7,17 +7,29 @@
     <div class="rightCt">
         <a href="#">
             <div>
-                <img src="" alt="">
+                <img 
+                [src]="hoveringFB ? '/assets/img/facebook-appHover.png' : '/assets/img/facebook-app.png'"
+                (mouseenter)="hoveringFB = true" 
+                (mouseleave)="hoveringFB = false" 
+                alt="Facebook">
             </div>
         </a>
         <a href="#">
             <div>
-                <img src="" alt="">
+                <img 
+                [src]="hoveringInsta ? '/assets/img/kameraHover.png' : '/assets/img/kamera.png'"
+                (mouseenter)="hoveringInsta = true" 
+                (mouseleave)="hoveringInsta = false" 
+                alt="Instagram">
             </div>
         </a>
         <a href="#">
             <div>
-                <img src="" alt="">
+                <img 
+                [src]="hoveringYT ? '/assets/img/youtubeHover.png' : '/assets/img/youtube.png'"
+                (mouseenter)="hoveringYT = true" 
+                (mouseleave)="hoveringYT = false" 
+                alt="YouTube">
             </div>
         </a>
     </div>
@@ -31,6 +43,4 @@
             <span>Sie erreichen uns: MO - SA: 15:00 - 19:00 Uhr</span>
         </div>
     </div>
-    <!-- <app-contact></app-contact> -->
-    
 </section>
