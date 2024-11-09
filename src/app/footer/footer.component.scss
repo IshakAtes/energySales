@@ -1,11 +1,43 @@
 section {
     background-color: #083049;
+    position: relative;
     height: 300px;
-    padding: 100px 100px;
+    padding: 100px;
+    padding-top: 200px;
+    padding-bottom: 140px;
     display: flex;
     justify-content: center;
     align-items: center ;
     justify-content: space-between;
+}
+
+app-contact {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  background-color: #F2FA1B;
+}
+
+.footerBanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #F2FA1B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+
+  div span {
+    font-weight: 700;
+    color:#083049;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+  }
 }
 
 .leftCt {
@@ -13,6 +45,16 @@ section {
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
+
+  a {
+    color: ghostwhite;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+
+    &:hover {
+      color:#fee100;
+    }
+  }
 }
 
 .rightCt {
