@@ -7,11 +7,12 @@ import { ServiceBannerComponent } from "../service-banner/service-banner.compone
 import { ContactComponent } from '../contact/contact.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RoadmapComponent } from '../roadmap/roadmap.component';
+import { SponsoringBannerComponent } from '../sponsoring-banner/sponsoring-banner.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NavComponent, HeaderComponent, CallToMeetingComponent, RoadmapComponent, OurServiceComponent, ServiceBannerComponent, ContactComponent, FooterComponent],
+  imports: [NavComponent, HeaderComponent, CallToMeetingComponent, RoadmapComponent, OurServiceComponent, SponsoringBannerComponent, ServiceBannerComponent, ContactComponent, FooterComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
