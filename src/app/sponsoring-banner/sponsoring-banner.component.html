@@ -1,1 +1,8 @@
-<p>sponsoring-banner works!</p>
+<section>
+    <div class="carousel-container">
+        <img *ngFor="let i of imageIndices" 
+             [ngStyle]="{'right.px': i * 5}" 
+             src="/assets/img/sponsors/{{ i + 1 }}spon.png" 
+             alt="Image {{ i + 1 }}">
+    </div>
+</section>

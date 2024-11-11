@@ -1,0 +1,16 @@
+section {
+    background-color: #F2FA1B;
+    padding: 20px 100px;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: auto;
+        height: 40px;
+        padding-left: 24px;
+    }
+}
