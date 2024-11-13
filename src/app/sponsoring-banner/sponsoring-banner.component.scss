@@ -1,16 +1,60 @@
+// section {
+//     background-color: #F2FA1B;
+//     padding: 20px 100px;
+// }
+
+// .carousel-container {
+//     display: flex;
+//     align-items: center;
+//     overflow: hidden;
+//     white-space: nowrap;
+// }
+
+// .sponsor-image {
+//     width: auto;
+//     height: 40px;
+//     padding-left: 24px;
+//     flex-shrink: 0;
+// }
+
+// @keyframes slide-left {
+//     0% {
+//         transform: translateX(0);
+//     }
+//     100% {
+//         transform: translateX(-80%);
+//     }
+// }
+
+
 section {
     background-color: #F2FA1B;
     padding: 20px 100px;
 }
 
 .carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Stellt sicher, dass die Bilder nebeneinander angezeigt werden */
+    overflow: hidden; /* Verhindert das Überlaufen der Bilder außerhalb des Containers */
+    width: 100%; /* Maximale Breite */
+}
 
-    img {
-        width: auto;
-        height: 40px;
-        padding-left: 24px;
+.carousel-container img {
+    width: auto;
+    height: 60px;
+    margin-left: 100px;
+    flex-shrink: 0;
+    animation: scroll-left-right 60s linear infinite;
+}
+
+
+@keyframes scroll-left-right {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-4000px);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
