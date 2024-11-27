@@ -5,6 +5,7 @@ export class formModel {
     power: string | undefined | null;
     email: string;
     consume: string;
+    file: File | null;
     feedback: string;
 
 
@@ -15,6 +16,7 @@ export class formModel {
         this.power = obj ? obj.power : '';
         this.email = obj ? obj.email : '';
         this.consume = obj ? obj.consume : '';
+        this.file = obj ? obj.file : null;
         this.feedback = obj ? obj.feedback : '';
     }
 
@@ -26,6 +28,7 @@ export class formModel {
             power: this.power,
             email: this.email,
             consume: this.consume,
+            file: this.file ? this.file.name : null,
             feedback: this.feedback
         }
     }

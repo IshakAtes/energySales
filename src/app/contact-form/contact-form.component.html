@@ -4,21 +4,36 @@
     [formGroup]="myForm"
     >
         <div class="grid md:grid-cols-2 md:gap-6">
+            <!-- name -->
             <div class="relative z-0 w-full mb-5 group">
                 <input formControlName="name" type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
                 <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Vorname</label>
+                <!-- Fehlermeldung anzeigen -->
+                <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched" class="text-red-500 text-sm">
+                    Der Name muss mindestens 2 Zeichen lang sein.
+                </div>
             </div>
+            <!-- lastname -->
             <div class="relative z-0 w-full mb-5 group">
                 <input formControlName="lastName" type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
                 <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Nachname</label>
+                <!-- Fehlermeldung anzeigen -->
+                <div *ngIf="myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched" class="text-red-500 text-sm">
+                    Der Nachname muss mindestens 2 Zeichen lang sein.
+                </div>
             </div>
         </div>
         <div class="grid md:grid-cols-2 md:gap-6">
+            <!-- phone Number -->
             <div class="relative z-0 w-full mb-5 group">
                 <input formControlName="phoneNumber" type="number" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
                 <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Telefon Nr.</label>
+                <!-- Fehlermeldung anzeigen -->
+                <div class="text-red-500 text-sm" *ngIf="myForm.get('phoneNumber')?.invalid && myForm.get('phoneNumber')?.touched && myForm.get('phoneNumber')?.errors?.['required']">
+                    Telefonnummer ist erforderlich.
+                </div>
             </div>
-                    <!-- Power -->
+            <!-- type of power -->
             <div class="relative z-0 w-full mb-5 group">
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500 highlightColor">Verbrauchsart</label>
                 <select [formControl]="selectControl" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" required>
@@ -33,19 +48,30 @@
         <div class="relative z-0 w-full mb-5 group">
             <input formControlName="email" type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
             <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">E-mail Adresse</label>
+            <!-- Fehlermeldungen anzeigen -->
+            <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" class="text-red-500 text-sm">
+                <div *ngIf="myForm.get('email')?.errors?.['required']">E-Mail-Adresse ist erforderlich.</div>
+                <div *ngIf="myForm.get('email')?.errors?.['email']">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+            </div>
         </div>
 
         <!-- Verbrauch -->
         <div class="relative z-0 w-full mb-5 group">
             <input formControlName="consume" type="consume" name="floating_consume" id="floating_consume" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
             <label for="floating_consume" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Verbrauch in kwh oder Abrechnung hochladen</label>
+            <div  *ngIf="myForm.get('consume')?.hasError('consumeOrFileRequired') && myForm.get('consume')?.touched" class="text-red-500 text-sm">
+                Wir können kein Angebot erstellen, ohne Ihren Verbrauch zu kennen, oder Sie laden direkt Ihre letzte Jahresabrechnung hoch.
+            </div>
         </div>
 
         <!-- UPLOAD -->
         <label class="block mb-2 text-sm font-medium text-gray-900 highlightColor" for="user_avatar">Upload file</label>
-        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+        <input formControlName="file" type="file" (change)="onFileChange($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="documentFile">
         <div class="mt-1 mb-10 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">*Die letzte Abrechnung hilft, die jährlichen Kosten des bisherigen Anbieters mit denen des neuen Anbieters zu vergleichen. Sie zeigt den tatsächlichen Verbrauch und die Kosten pro Jahr, sodass Unterschiede in den Tarifen und eventuell versteckte Gebühren leichter erkennbar sind.</div>
-
+        <div *ngIf="file?.hasError('invalidFileType') && file?.touched" class="error">
+            Die Datei muss ein Bild (.jpg, .jpeg, .png) oder PDF sein.
+        </div>
+        
         <!-- TEXTAREA -->
         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white highlightColor">Bemerkung:</label>
         <textarea formControlName="feedback" id="message" rows="4" class="block mb-5 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Leave a comment..."></textarea>
