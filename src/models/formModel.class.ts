@@ -6,13 +6,13 @@ export class formModel {
     email: string;
     consume: string;
     file: File | null;
-    feedback: string;
+    feedback: string = '';
 
 
     constructor(obj?: any){
         this.name = obj ? obj.name : '';
         this.lastName = obj ? obj.lastName : '';
-        this.phoneNumber = obj ? obj.phoneNumber : '';
+        this.phoneNumber = obj ? obj.phoneNumber : 0;
         this.power = obj ? obj.power : '';
         this.email = obj ? obj.email : '';
         this.consume = obj ? obj.consume : '';
