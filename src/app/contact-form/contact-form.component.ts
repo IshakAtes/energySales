@@ -1,15 +1,18 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, HttpClientModule],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
+  http = inject(HttpClient);
+  mailSended: boolean = false;
   selectControl:FormControl = new FormControl('', Validators.required);
   myForm: FormGroup;
   
@@ -69,15 +72,39 @@ export class ContactFormComponent {
   };
   
 
+  post = {
+    endPoint: 'https://ishakates.com/send-email.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  };
+  
   onSubmit() {
-    console.log(this.myForm.valid);
-    console.log('Konsum', this.myForm.value.consume);
-    
+    debugger
     if (this.myForm.valid) {
-      console.log('Form submitted', this.myForm.value);
+      this.http.post(this.post.endPoint, this.post.body(this.myForm.value), this.post.options)
+        .subscribe({
+          next: (_response: any) => {
+            this.myForm.reset();
+          },
+          error: (error: any) => {
+            console.error(error);
+          },
+          complete: () => {
+            console.info('send post complete');
+            this.mailSended = true;
+            setTimeout(() => {
+              this.mailSended = false;
+            }, 3000)
+          }
+        });
     } else {
       console.log('Form not Valid');
-      this.myForm.markAllAsTouched(); // Markiert alle Felder, um Fehler zu zeigen
+      this.myForm.markAllAsTouched();
     }
   }
+
 }
