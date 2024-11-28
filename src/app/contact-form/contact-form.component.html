@@ -66,9 +66,17 @@
 
         <!-- UPLOAD -->
         <label class="block mb-2 text-sm font-medium text-gray-900 highlightColor" for="user_avatar">Upload file</label>
-        <input formControlName="file" type="file" (change)="onFileChange($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="documentFile">
+        <input 
+            formControlName="file" 
+            type="file" 
+            accept=".jpg,.jpeg,.png,.pdf"
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+            aria-describedby="user_avatar_help" 
+            id="documentFile" 
+            (change)="onFileChange($event)" 
+            />
         <div class="mt-1 mb-10 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">*Die letzte Abrechnung hilft, die jährlichen Kosten des bisherigen Anbieters mit denen des neuen Anbieters zu vergleichen. Sie zeigt den tatsächlichen Verbrauch und die Kosten pro Jahr, sodass Unterschiede in den Tarifen und eventuell versteckte Gebühren leichter erkennbar sind.</div>
-        <div *ngIf="file?.hasError('invalidFileType') && file?.touched" class="error">
+        <div *ngIf="file?.hasError('invalidFileType') && file?.touched" class="text-red-500 text-sm">
             Die Datei muss ein Bild (.jpg, .jpeg, .png) oder PDF sein.
         </div>
         

@@ -40,6 +40,7 @@ export class ContactFormComponent {
     if (file) {
       const fileExtension = file.name.split('.').pop().toLowerCase();
       const validExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+      console.log(fileExtension);
       if (!validExtensions.includes(fileExtension)) {
         return { invalidFileType: true };
       }
@@ -48,10 +49,14 @@ export class ContactFormComponent {
   }
 
   onFileChange(event: any): void {
-    const file = event.target.files[0];
-    this.myForm.patchValue({
-      file: file
-    });
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.myForm.patchValue({
+        file: file
+      }, { emitEvent: false });
+      this.myForm.get('file')?.updateValueAndValidity();
+    }
   }
 
   get file() {
@@ -66,9 +71,8 @@ export class ContactFormComponent {
     const consume = form.get('consume')?.value;
     const file = form.get('file')?.value;
   
-    return (!consume && !file) 
-      ? { consumeOrFileRequired: true } 
-      : null;
+    // Validierung ist erfolgreich, wenn entweder Verbrauch oder Datei vorhanden ist
+    return (consume || file) ? null : { consumeOrFileRequired: true };
   };
   
 
@@ -83,9 +87,22 @@ export class ContactFormComponent {
   };
   
   onSubmit() {
-    debugger
     if (this.myForm.valid) {
-      this.http.post(this.post.endPoint, this.post.body(this.myForm.value), this.post.options)
+      const formData = new FormData();
+      
+      // Alle Formularfelder hinzufügen
+      Object.keys(this.myForm.controls).forEach(key => {
+        const control = this.myForm.get(key);
+        if (key === 'file' && control?.value) {
+          // Datei separat hinzufügen
+          formData.append('file', control.value, control.value.name);
+        } else if (control?.value !== null && control?.value !== undefined) {
+          formData.append(key, control.value);
+        }
+      });
+  
+      // Senden mit FormData statt JSON
+      this.http.post(this.post.endPoint, formData)
         .subscribe({
           next: (_response: any) => {
             this.myForm.reset();
