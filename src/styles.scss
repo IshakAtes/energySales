@@ -11,6 +11,11 @@ $text-color: #ffffff; // white
 $danger-red: #F32013; // Red
 $text-marker: #F2FA1B; // highlighter
 
+
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
 }

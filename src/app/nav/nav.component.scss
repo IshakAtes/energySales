@@ -12,6 +12,12 @@ nav img {
     height: 80px;
 }
 
+nav div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 nav div a {
     color: ghostwhite;
     text-align: center;
