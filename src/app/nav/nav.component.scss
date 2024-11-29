@@ -11,3 +11,22 @@ nav img {
     width: auto;
     height: 80px;
 }
+
+nav div a {
+    color: ghostwhite;
+    text-align: center;
+    font-size: 32px;
+    margin-left: 24px;
+    width: 200px;
+    padding: 0 50px;
+    cursor: pointer;
+    font-family: "Passion One", sans-serif;
+    display: inline-block;
+
+    &:hover {
+        color: #032c3e;
+        background-image: url('/assets/img/highlight4.png');
+        background-size: cover;
+        background-position: center;
+    }
+}
