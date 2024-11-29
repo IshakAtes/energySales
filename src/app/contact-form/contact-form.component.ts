@@ -24,14 +24,14 @@ export class ContactFormComponent {
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       power: this.selectControl,
       email: ['', [Validators.required, Validators.email]],
-      consume: [''],
+      consume: ['', [Validators.required, Validators.minLength(2)]],
       file: [null],
       feedback: ['', [Validators.maxLength(9000)]],
     });
   
-    // Kreuzfeld-Validierung hinzufügen
-    this.myForm.get('consume')?.setValidators([this.validateConsumeOrFile]);
-    this.myForm.get('file')?.setValidators([this.validateConsumeOrFile]);
+    // Kreuzfeld-Validierung
+    // this.myForm.get('consume')?.setValidators([this.validateConsumeOrFile]);
+    // this.myForm.get('file')?.setValidators([this.validateConsumeOrFile]);
   }
 
 
@@ -64,16 +64,16 @@ export class ContactFormComponent {
   }
 
 
-  validateConsumeOrFile = (control: AbstractControl): ValidationErrors | null => {
-    const form = control.parent;
-    if (!form) return null;
+  // validateConsumeOrFile = (control: AbstractControl): ValidationErrors | null => {
+  //   const form = control.parent;
+  //   if (!form) return null;
   
-    const consume = form.get('consume')?.value;
-    const file = form.get('file')?.value;
+  //   const consume = form.get('consume')?.value;
+  //   const file = form.get('file')?.value;
   
-    // Validierung ist erfolgreich, wenn entweder Verbrauch oder Datei vorhanden ist
-    return (consume || file) ? null : { consumeOrFileRequired: true };
-  };
+  //   // Validierung ist erfolgreich, wenn entweder Verbrauch oder Datei vorhanden ist
+  //   return (consume || file) ? null : { consumeOrFileRequired: true };
+  // };
   
 
   post = {
@@ -112,6 +112,7 @@ export class ContactFormComponent {
           },
           complete: () => {
             console.info('send post complete');
+            alert('Formular wurde Abgeschickt');
             this.mailSended = true;
             setTimeout(() => {
               this.mailSended = false;
@@ -119,6 +120,7 @@ export class ContactFormComponent {
           }
         });
     } else {
+      alert('Formular nicht Valide');
       console.log('Form not Valid');
       this.myForm.markAllAsTouched();
     }

@@ -57,15 +57,21 @@
 
         <!-- Verbrauch -->
         <div class="relative z-0 w-full mb-5 group">
-            <input formControlName="consume" type="text" name="floating_consume" id="floating_consume" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
+            <input formControlName="consume"
+            type="text" name="floating_consume"
+            id="floating_consume"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer"
+            placeholder=" "
+            required />
             <label for="floating_consume" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Verbrauch in kwh oder Abrechnung hochladen</label>
-            <div *ngIf="myForm.get('consume')?.hasError('consumeOrFileRequired') && myForm.get('consume')?.touched" class="text-red-500 text-sm">
-                Wir können kein Angebot erstellen, ohne Ihren Verbrauch zu kennen, oder Sie laden direkt Ihre letzte Jahresabrechnung hoch.
+            <div *ngIf="myForm.get('consume')?.invalid && myForm.get('consume')?.touched" class="text-red-500 text-sm">
+                Um Ihnen ein passendes Angebot erstellen zu können, benötigen wir Ihren Verbrauch. Alternativ können Sie uns auch einfach Ihre letzte Jahresabrechnung zusenden.
+                <!-- Wir können kein Angebot erstellen, ohne Ihren Verbrauch zu kennen, oder Sie laden direkt Ihre letzte Jahresabrechnung hoch. -->
             </div>
         </div>
 
         <!-- UPLOAD -->
-        <label class="block mb-2 text-sm font-medium text-gray-900 highlightColor" for="user_avatar">Upload file</label>
+        <!-- <label class="block mb-2 text-sm font-medium text-gray-900 highlightColor" for="user_avatar">Upload file</label>
         <input 
             formControlName="file" 
             type="file" 
@@ -74,11 +80,11 @@
             aria-describedby="user_avatar_help" 
             id="documentFile" 
             (change)="onFileChange($event)" 
-            />
+            /> -->
         <div class="mt-1 mb-10 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">*Die letzte Abrechnung hilft, die jährlichen Kosten des bisherigen Anbieters mit denen des neuen Anbieters zu vergleichen. Sie zeigt den tatsächlichen Verbrauch und die Kosten pro Jahr, sodass Unterschiede in den Tarifen und eventuell versteckte Gebühren leichter erkennbar sind.</div>
-        <div *ngIf="file?.hasError('invalidFileType') && file?.touched" class="text-red-500 text-sm">
+        <!-- <div *ngIf="file?.hasError('invalidFileType') && file?.touched" class="text-red-500 text-sm">
             Die Datei muss ein Bild (.jpg, .jpeg, .png) oder PDF sein.
-        </div>
+        </div> -->
         
         <!-- TEXTAREA -->
         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white highlightColor">Bemerkung:</label>
