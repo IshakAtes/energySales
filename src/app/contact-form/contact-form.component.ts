@@ -25,7 +25,6 @@ export class ContactFormComponent {
       power: this.selectControl,
       email: ['', [Validators.required, Validators.email]],
       consume: ['', [Validators.required, Validators.minLength(2)]],
-      file: [null],
       feedback: ['', [Validators.maxLength(9000)]],
     });
   
@@ -35,33 +34,33 @@ export class ContactFormComponent {
   }
 
 
-  fileValidator(control: any) {
-    const file = control.value;
-    if (file) {
-      const fileExtension = file.name.split('.').pop().toLowerCase();
-      const validExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
-      console.log(fileExtension);
-      if (!validExtensions.includes(fileExtension)) {
-        return { invalidFileType: true };
-      }
-    }
-    return null;
-  }
+  // fileValidator(control: any) {
+  //   const file = control.value;
+  //   if (file) {
+  //     const fileExtension = file.name.split('.').pop().toLowerCase();
+  //     const validExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+  //     console.log(fileExtension);
+  //     if (!validExtensions.includes(fileExtension)) {
+  //       return { invalidFileType: true };
+  //     }
+  //   }
+  //   return null;
+  // }
 
-  onFileChange(event: any): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      this.myForm.patchValue({
-        file: file
-      }, { emitEvent: false });
-      this.myForm.get('file')?.updateValueAndValidity();
-    }
-  }
+  // onFileChange(event: any): void {
+  //   const input = event.target as HTMLInputElement;
+  //   if (input.files && input.files.length > 0) {
+  //     const file = input.files[0];
+  //     this.myForm.patchValue({
+  //       file: file
+  //     }, { emitEvent: false });
+  //     this.myForm.get('file')?.updateValueAndValidity();
+  //   }
+  // }
 
-  get file() {
-    return this.myForm.get('file');
-  }
+  // get file() {
+  //   return this.myForm.get('file');
+  // }
 
 
   // validateConsumeOrFile = (control: AbstractControl): ValidationErrors | null => {
@@ -87,24 +86,12 @@ export class ContactFormComponent {
   };
   
   onSubmit() {
+    console.log(this.myForm.value);
     if (this.myForm.valid) {
-      const formData = new FormData();
-      
-      // Alle Formularfelder hinzufügen
-      Object.keys(this.myForm.controls).forEach(key => {
-        const control = this.myForm.get(key);
-        if (key === 'file' && control?.value) {
-          // Datei separat hinzufügen
-          formData.append('file', control.value, control.value.name);
-        } else if (control?.value !== null && control?.value !== undefined) {
-          formData.append(key, control.value);
-        }
-      });
-  
-      // Senden mit FormData statt JSON
-      this.http.post(this.post.endPoint, formData)
+      this.http.post(this.post.endPoint, this.post.body(this.myForm.value), this.post.options)
         .subscribe({
           next: (_response: any) => {
+            console.log('Response', _response);
             this.myForm.reset();
           },
           error: (error: any) => {
@@ -112,7 +99,7 @@ export class ContactFormComponent {
           },
           complete: () => {
             console.info('send post complete');
-            alert('Formular wurde Abgeschickt');
+            alert('Formular wurde abgeschickt');
             this.mailSended = true;
             setTimeout(() => {
               this.mailSended = false;
@@ -120,8 +107,8 @@ export class ContactFormComponent {
           }
         });
     } else {
-      alert('Formular nicht Valide');
-      console.log('Form not Valid');
+      alert('Formular ist nicht valide. Bitte überprüfen Sie die Eingaben.');
+      console.log('Form is not valid');
       this.myForm.markAllAsTouched();
     }
   }
