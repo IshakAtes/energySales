@@ -17,4 +17,7 @@ export class CallToMeetingComponent {
     this.toggleDialog = !this.toggleDialog;
   }
 
+  closeDialog() {
+    this.toggleDialog = !this.toggleDialog;
+  }
 }

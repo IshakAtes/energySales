@@ -17,9 +17,9 @@
             <div *ngIf="toggleDialog" class="brutal-subscribe">
                 <div class="brutal-subscribe__container">
                     <div class="brutal-subscribe__header">
-                    <span class="brutal-subscribe__title">NIHILISM</span>
+                    <span class="brutal-subscribe__title">Jetzt Termin planen</span>
                     <span class="brutal-subscribe__subtitle"
-                        >FROM THE VOID WE WILL SEND YOU</span
+                        >Wir melden uns bei dir</span
                     >
                     </div>
                     <form class="brutal-subscribe__form">
@@ -31,7 +31,7 @@
                     />
                     <button type="submit" class="brutal-subscribe__button">SUBSCRIBE</button>
                     </form>
-                    <div class="brutal-subscribe__decor">WEEKLY</div>
+                    <div (click)="closeDialog()" class="brutal-subscribe__decor">SCHLIEßEN</div>
                 </div>
             </div>
         </div>
