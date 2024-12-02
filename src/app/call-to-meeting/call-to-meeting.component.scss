@@ -198,64 +198,26 @@ button:hover span {
     position: relative;
     z-index: 1;
   }
-  
-  .brutal-subscribe__form {
-    padding: 20px;
+
+  .brutal-container {
+    background-color: #F2FA1B;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row-reverse;
+    
+    div {
+      width: 64px;
+      height: 64px;
+
+      img {
+        width: 64px;
+        height: auto;
+      }
+    }
   }
-  
-  .brutal-subscribe__input {
-    width: calc(100% - 26px);
-    padding: 10px;
-    border: 3px solid #000;
-    font-family: inherit;
-    font-size: 16px;
-    margin-bottom: 10px;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  
-  .brutal-subscribe__input:focus {
-    outline: none;
-    background-color: #ff0;
-    transform: scale(1.05);
-  }
-  
-  .brutal-subscribe__button {
-    width: 60%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: 3px solid #000;
-    font-family: inherit;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .brutal-subscribe__button::after {
-    content: "→";
-    position: absolute;
-    top: 50%;
-    right: -30px;
-    transform: translateY(-50%);
-    transition: right 0.3s;
-  }
-  
-  .brutal-subscribe__button:hover {
-    background-color: #ff0;
-    color: #000;
-  }
-  
-  .brutal-subscribe__button:hover::after {
-    right: 10px;
-  }
-  
-  .brutal-subscribe__button:active {
-    transform: scale(0.95);
-  }
-  
+    
   .brutal-subscribe__decor {
     position: absolute;
     bottom: -10px;
