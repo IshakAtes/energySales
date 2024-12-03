@@ -200,20 +200,25 @@ button:hover span {
   }
 
   .brutal-container {
-    background-color: #F2FA1B;
+    background-color: ghostwhite;
     height: 200px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row-reverse;
     
-    div {
+    a {
       width: 64px;
       height: 64px;
+      cursor: pointer;
 
       img {
         width: 64px;
         height: auto;
+        transition: all 125ms ease-in-out;
+        &:hover {
+          width: 84px;
+        }
       }
     }
   }
