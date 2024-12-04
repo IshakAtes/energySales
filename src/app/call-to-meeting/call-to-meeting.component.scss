@@ -1,7 +1,7 @@
 @import url(./../../styles.scss);
 section {
     background-color: #083049;
-    padding: 100px 100px;
+    padding: 100px 100px 0 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,69 +55,107 @@ section h2 {
 
 // button
 /* From Uiverse.io by abrahamcalsin */ 
-button {
-    margin-top: 60px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background: #F2FA1B;
-    font-family: "Montserrat", sans-serif;
-    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    cursor: pointer;
-    border: none;
-    border-radius: 0.8em;
+// button {
+//     margin-top: 60px;
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 5px;
+//     background: #F2FA1B;
+//     font-family: "Montserrat", sans-serif;
+//     box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+//     overflow: hidden;
+//     cursor: pointer;
+//     border: none;
+//     border-radius: 0.8em;
+// }
+
+// button:after {
+//     content: " ";
+//     width: 0%;
+//     height: 100%;
+//     background: #F32013;
+//     position: absolute;
+//     transition: all 0.4s ease-in-out;
+//     right: 0;
+// }
+
+// button:hover::after {
+//     right: auto;
+//     left: 0;
+//     width: 100%;
+// }
+
+// button span {
+//     text-align: center;
+//     text-decoration: none;
+//     width: 100%;
+//     padding: 18px 25px;
+//     color: #183153;
+//     font-size: 1.125em;
+//     font-weight: 700;
+//     letter-spacing: 0.3em;
+//     z-index: 20;
+//     transition: all 0.3s ease-in-out;
+// }
+
+// button:hover span {
+//     color: #fff;
+//     animation: scaleUp 0.3s ease-in-out;
+// }
+
+// @keyframes scaleUp {
+//     0% {
+//         transform: scale(1);
+//     }
+
+//     50% {
+//         transform: scale(0.95);
+//     }
+
+//     100% {
+//         transform: scale(1);
+//     }
+// }
+
+
+
+
+
+/* From Uiverse.io by Gautammsharma */ 
+.comic-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: ghostwhite;
+  background-color: #F32013;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 125ms ease;
+  cursor: pointer;
 }
 
-button:after {
-    content: " ";
-    width: 0%;
-    height: 100%;
-    background: #F32013;
-    position: absolute;
-    transition: all 0.4s ease-in-out;
-    right: 0;
+.comic-button:hover {
+  background-color: #083049;
+  color: #F2FA1B;
+  border: 2px solid #F2FA1B;
+  box-shadow: 5px 5px 0px #F2FA1B;
 }
 
-button:hover::after {
-    right: auto;
-    left: 0;
-    width: 100%;
+.comic-button:active {
+  background-color: #F32013;
+  color: ghostwhite;
+  border: 2px solid #000;
+  box-shadow: none;
+  transform: translateY(4px);
 }
 
-button span {
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-    padding: 18px 25px;
-    color: #183153;
-    font-size: 1.125em;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    z-index: 20;
-    transition: all 0.3s ease-in-out;
-}
 
-button:hover span {
-    color: #fff;
-    animation: scaleUp 0.3s ease-in-out;
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(0.95);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 
 
