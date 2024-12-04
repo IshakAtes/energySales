@@ -3,7 +3,7 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 100px 100px;
+    padding: 100px 100px 0 100px;
     background-color: #083049;
 }
 
@@ -25,6 +25,10 @@ section {
 
 .redMarker {
     background: #f31e13;
+}
+
+.pd-bottom-100 {
+    padding-bottom: 100px;
 }
 
 
