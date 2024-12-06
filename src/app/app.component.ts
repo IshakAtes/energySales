@@ -11,4 +11,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'energySales';
+
+  onDeactivate() {
+    document.body.scrollTop = 0;
+    // Alternatively, you can scroll to top by using this other call:
+    // window.scrollTo(0, 0)
+  }
 }

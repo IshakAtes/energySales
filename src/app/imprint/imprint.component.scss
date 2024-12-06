@@ -1,5 +1,4 @@
 section {
-    height: 100vh;
     background-color: #083049;
     display: flex;
     justify-content: center;
@@ -7,7 +6,17 @@ section {
     flex-direction: column;
     padding: 100px;
 
-    span {
-        color: ghostwhite;
+    .impressum {
+
+        h1 {
+            font-size: 32px;
+            color: #ffff01;
+        }
+        h2 {
+            color: #ffff01;
+        }
+        p {
+            color: ghostwhite;
+        }
     }
 }

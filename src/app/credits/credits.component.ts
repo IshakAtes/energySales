@@ -11,4 +11,7 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class CreditsComponent {
 
+  constructor() {
+    
+  }
 }
