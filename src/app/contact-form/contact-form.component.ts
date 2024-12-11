@@ -76,7 +76,7 @@ export class ContactFormComponent {
   
 
   post = {
-    endPoint: 'https://ishakates.com/send-email.php',
+    endPoint: 'https://dealcheckers.de/send-email.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {

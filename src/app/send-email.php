@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Origin: https://dealcheckers.de');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, responseType');
 // Preflight-Anfragen behandeln
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 $data = json_decode(file_get_contents('php://input'), true);
-$to = 'ishakfeuer@gmail.com';
+$to = 'office@dealcheckers.de';
 $subject = 'Neue Kontaktanfrage';
 $message = "Vorname: {$data['name']}\n";
 $message .= "Nachname: {$data['lastName']}\n";
