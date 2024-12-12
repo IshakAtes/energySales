@@ -9,9 +9,17 @@
 
 <nav class="navMobile">
     <img [routerLink]="['/']" src="/assets/img/checkerLogo.png" alt="">
-    <!-- <div>
+    <label class="bar" for="check">
+        <input type="checkbox" id="check" [(ngModel)]="menuOpen">
+
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+    </label>
+    <div
+    *ngIf="menuOpen">
         <a href="#">Smartphone Verträge<br>(Comming Soon)</a>
         <a href="#">Solarenergie<br>(Comming Soon)</a>
         <a href="#formComponent">Kontakt</a>
-    </div> -->
+    </div>
 </nav>

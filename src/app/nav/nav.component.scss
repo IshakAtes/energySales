@@ -57,6 +57,69 @@
     cursor: pointer;
 }
 
+/* From Uiverse.io by Ali-Tahmazi99 */ 
+input[type = "checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+    visibility: hidden;
+  }
+  
+  .bar {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+  }
+  
+  .bar span {
+    position: absolute;
+    width: 45px;
+    height: 7px;
+    background: #ffff01;;
+    border-radius: 100px;
+    display: inline-block;
+    transition: 0.3s ease;
+    left: 0;
+  }
+  
+  .bar span.top {
+    top: 0;
+  }
+  
+  .bar span.middle {
+    top: 17px;
+  }
+  
+  .bar span.bottom {
+    bottom: 0;
+  }
+  
+  input[type]:checked ~ span.top {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    width: 48px;
+    left: 5px;
+    &:hover {
+        box-shadow: 0 0 10px #495057;
+    }
+  }
+  
+  input[type]:checked ~ span.bottom {
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    width: 48px;
+    bottom: -1px;
+    &:hover {
+        box-shadow: 0 0 10px #495057;
+    }
+  }
+  
+  input[type]:checked ~ span.middle {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
 
 
 @media only screen and (max-width: 1400px) {
@@ -68,8 +131,17 @@
     }
 }
 
+
+@media only screen and (min-width: 1200px) {
+    .navMobile {
+        display: none;
+    }
+}
+
+
 @media only screen and (max-width: 1200px) {
     .nav {
         display: none;
     }
 }
+
