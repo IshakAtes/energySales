@@ -13,5 +13,11 @@ import { RouterLink } from '@angular/router';
 })
 export class NavComponent {
   menuOpen = false;
+  screenWidth = window.innerWidth <= 400;
+
+  constructor() {
+    console.log(this.screenWidth);
+    
+  }
 
 }
