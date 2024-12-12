@@ -1,4 +1,4 @@
-nav {
+.nav {
     background-color: #083049;
     padding: 0 100px;
     height: 120px;
@@ -7,19 +7,19 @@ nav {
     align-items: center;
 }
 
-nav img {
+.nav img {
     width: auto;
     height: 260px;
     cursor: pointer;
 }
 
-nav div {
+.nav div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-nav div a {
+.nav div a {
     color: ghostwhite;
     text-align: center;
     font-size: 32px;
@@ -36,5 +36,40 @@ nav div a {
         background-image: url('/assets/img/highlight4.png');
         background-size: cover;
         background-position: center;
+    }
+}
+
+
+
+// Mobile Nav
+.navMobile {
+    background-color: #083049;
+    padding: 0 100px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navMobile img {
+    width: auto;
+    height: 200px;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 1400px) {
+    .nav div a {
+        font-size: 26px;
+        margin-left: 0px;
+        padding: 0 34px;
+        line-height: 26px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .nav {
+        display: none;
     }
 }
