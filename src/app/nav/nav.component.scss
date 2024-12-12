@@ -42,6 +42,10 @@
 
 
 // Mobile Nav
+.visible {
+    display: flex;
+}
+
 .navMobile {
     position: fixed;
     z-index: 10;
@@ -72,13 +76,25 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: all 512ms ease-in-out;
     height: 0%
 }
 
 .navMenu a {
     text-align: center;
+    color: ghostwhite;
+    width: 600px;
+    padding: 20px 0px;
+    font-size: 26px;
+
+    &:hover {
+        color: #032c3e;
+        background-image: url(/assets/img/highlight4.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
 
 input[type = "checkbox"] {
@@ -156,7 +172,7 @@ input[type = "checkbox"] {
 
 
 @media only screen and (min-width: 1200px) {
-    .navMobile {
+    .visible {
         display: none;
     }
 }
@@ -168,3 +184,16 @@ input[type = "checkbox"] {
     }
 }
 
+@media only screen and (max-width: 860px) {
+    .navMobile {
+        padding: 0 40px;
+    }
+
+    .navMenu a {
+        text-align: center;
+        color: ghostwhite;
+        width: 300px;
+        padding: 20px 0px;
+        font-size: 20px;
+    }
+}

@@ -7,7 +7,7 @@
     </div>
 </nav>
 
-<nav class="navMobile">
+<nav class="visible navMobile">
     <img [routerLink]="['/']" src="/assets/img/checkerLogo.png" alt="">
     <label class="bar" for="check">
         <input type="checkbox" id="check" [(ngModel)]="menuOpen">
@@ -20,8 +20,8 @@
 
 <div
 [ngStyle]="{'height': menuOpen ? '100%' : '0'}"
-class="navMenu">
-    <a href="#">Smartphone Verträge<br>(Comming Soon)</a>
-    <a href="#">Solarenergie<br>(Comming Soon)</a>
-    <a href="#formComponent">Kontakt</a>
+class="visible navMenu">
+    <a href="#" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Smartphone Verträge<br>(Comming Soon)</a>
+    <a href="#" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Solarenergie<br>(Comming Soon)</a>
+    <a href="#formComponent" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Kontakt</a>
 </div>
