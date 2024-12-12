@@ -134,3 +134,37 @@ section {
 .cssbuttons-io:active {
     transform: scale(0.95);
 }
+
+
+@media only screen and (max-width: 1200px) {
+    // section > div {
+    //     padding-left: 0;
+    //     padding-right: 0;
+    //     gap: 0;
+    // }
+    section div {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-left: 0;
+        padding-right: 0;
+        gap: 0;
+        // width: 100%;
+    }
+
+    .myServiceContainer {
+        width: 100%;
+    }
+
+    .mailCt .mailMarker {
+        width: 80px;
+        height: 80px;
+    }
+    
+}
+
+
+@media only screen and (max-width: 860px) {
+    section {
+        padding: 120px 40px 0 40px;
+    }
+}
