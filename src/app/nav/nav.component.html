@@ -16,10 +16,12 @@
         <span class="middle"></span>
         <span class="bottom"></span>
     </label>
-    <div
-    *ngIf="menuOpen">
-        <a href="#">Smartphone Verträge<br>(Comming Soon)</a>
-        <a href="#">Solarenergie<br>(Comming Soon)</a>
-        <a href="#formComponent">Kontakt</a>
-    </div>
 </nav>
+
+<div
+[ngStyle]="{'height': menuOpen ? '100%' : '0'}"
+class="navMenu">
+    <a href="#">Smartphone Verträge<br>(Comming Soon)</a>
+    <a href="#">Solarenergie<br>(Comming Soon)</a>
+    <a href="#formComponent">Kontakt</a>
+</div>
