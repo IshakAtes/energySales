@@ -52,77 +52,6 @@ section h2 {
 
 
 
-
-// button
-/* From Uiverse.io by abrahamcalsin */ 
-// button {
-//     margin-top: 60px;
-//     position: relative;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 5px;
-//     background: #F2FA1B;
-//     font-family: "Montserrat", sans-serif;
-//     box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
-//     overflow: hidden;
-//     cursor: pointer;
-//     border: none;
-//     border-radius: 0.8em;
-// }
-
-// button:after {
-//     content: " ";
-//     width: 0%;
-//     height: 100%;
-//     background: #F32013;
-//     position: absolute;
-//     transition: all 0.4s ease-in-out;
-//     right: 0;
-// }
-
-// button:hover::after {
-//     right: auto;
-//     left: 0;
-//     width: 100%;
-// }
-
-// button span {
-//     text-align: center;
-//     text-decoration: none;
-//     width: 100%;
-//     padding: 18px 25px;
-//     color: #183153;
-//     font-size: 1.125em;
-//     font-weight: 700;
-//     letter-spacing: 0.3em;
-//     z-index: 20;
-//     transition: all 0.3s ease-in-out;
-// }
-
-// button:hover span {
-//     color: #fff;
-//     animation: scaleUp 0.3s ease-in-out;
-// }
-
-// @keyframes scaleUp {
-//     0% {
-//         transform: scale(1);
-//     }
-
-//     50% {
-//         transform: scale(0.95);
-//     }
-
-//     100% {
-//         transform: scale(1);
-//     }
-// }
-
-
-
-
-
 /* From Uiverse.io by Gautammsharma */ 
 .comic-button {
   display: inline-block;
@@ -315,4 +244,40 @@ section h2 {
   .brutal-subscribe__container:hover .brutal-subscribe__title {
     animation: glitch 0.3s infinite;
   }
+
+
+@media only screen and (max-width: 1200px) {
+  section {
+    padding: 220px 100px 0 100px;
+  }
   
+  section img {
+    width: 100%;
+  }
+
+}
+
+
+@media only screen and (max-width: 860px) {
+  section {
+    padding: 220px 40px 0 40px;
+  }
+  
+  section p {
+    text-align: center;
+  }
+
+}
+
+
+@media only screen and (max-width: 460px) {
+  section {
+    padding: 220px 40px 0 40px;
+  }
+  
+  section h2 {
+    text-align: center;
+    line-height: normal;
+  }
+
+}

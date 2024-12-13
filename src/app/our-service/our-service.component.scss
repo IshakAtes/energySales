@@ -35,7 +35,6 @@ section {
 
 
 // Whatsapp
-  
 .hover-image {
     width: 80px;
     height: 80px;
@@ -186,5 +185,18 @@ section {
     .contactContainer a {
         flex-direction: column;
         margin-bottom: 40px;
+    }
+
+    .headline {
+        text-align: center;
+    }
+
+    .serviceContent {
+        text-align: center;
+    }
+
+    .cssbuttons-io {
+        display: block;
+        margin: 0 auto;
     }
 }

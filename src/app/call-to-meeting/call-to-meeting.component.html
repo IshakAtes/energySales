@@ -12,9 +12,14 @@
             <span>Termin vereinbaren</span>
         </button> -->
 
-        <button (click)="openDialog()" class="comic-button mt-14">
-            Termin vereinbaren
+        <button *ngIf="screenWidth;else buttonTemplate" (click)="openDialog()" class="comic-button mt-14">
+            Kontakt
         </button>
+        <ng-template #buttonTemplate>
+            <button (click)="openDialog()" class="comic-button mt-14">
+                Termin vereinbaren
+            </button>
+        </ng-template>
 
         <!-- dialog -->
         <div class="dialogContainer">

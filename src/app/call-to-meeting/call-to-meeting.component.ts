@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,8 +10,12 @@ import { Component } from '@angular/core';
 })
 export class CallToMeetingComponent {
   toggleDialog: boolean = false;
+  screenWidth = window.innerWidth <= 400;
 
-  constructor() {}
+  constructor() {
+    console.log(this.screenWidth);
+    
+  }
 
   openDialog() {
     this.toggleDialog = !this.toggleDialog;
