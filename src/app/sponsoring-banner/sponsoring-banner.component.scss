@@ -60,14 +60,15 @@ section {
 }
 
 
-// .carousel-container img {
-//     height: 40px;
-//     animation: scroll-left-right 60s linear infinite;
-// }
+@media only screen and (max-width: 860px) {
+    section {
+        padding: 20px 40px;
+    }
+}
 
 
-// @keyframes scroll-left-right {
-//     50% {
-//         transform: translateX(-4000px);
-//     }
-// }
+@media only screen and (max-width: 400px) {
+    section {
+        padding: 10px 0;
+    }
+}
