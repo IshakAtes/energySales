@@ -167,4 +167,24 @@ section {
     section {
         padding: 120px 40px 0 40px;
     }
+
+    .hover-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mailCt {
+        min-height: 60px;
+        min-width: 60px;
+    }
+
+    .mailCt .mailMarker {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contactContainer a {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
 }
