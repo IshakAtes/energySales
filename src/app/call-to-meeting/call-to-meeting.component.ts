@@ -13,8 +13,6 @@ export class CallToMeetingComponent {
   screenWidth = window.innerWidth <= 400;
 
   constructor() {
-    console.log(this.screenWidth);
-    
   }
 
   openDialog() {

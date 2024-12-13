@@ -15,6 +15,8 @@ export class ContactFormComponent {
   mailSended: boolean = false;
   selectControl:FormControl = new FormControl('', Validators.required);
   myForm: FormGroup;
+  screenWidth = window.innerWidth <= 400;
+  
   
 
   constructor (private formBuilder: FormBuilder) {

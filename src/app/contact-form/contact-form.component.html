@@ -63,7 +63,12 @@
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer"
             placeholder=" "
             required />
-            <label for="floating_consume" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Verbrauch in kwh oder Abrechnung hochladen</label>
+            <ng-container *ngIf="screenWidth;else placeholderTemplate">
+                <label for="floating_consume" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Verbrauch in kwh</label>
+            </ng-container>
+            <ng-template #placeholderTemplate>
+                <label for="floating_consume" class="peer-focus:font-medium absolute text-sm text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 highlightColor">Verbrauch in kwh oder Abrechnung hochladen</label>
+            </ng-template>
             <div *ngIf="myForm.get('consume')?.invalid && myForm.get('consume')?.touched" class="text-red-500 text-sm">
                 Um Ihnen ein passendes Angebot erstellen zu können, benötigen wir Ihren Verbrauch. Alternativ können Sie uns auch einfach Ihre letzte Jahresabrechnung zusenden.
                 <!-- Wir können kein Angebot erstellen, ohne Ihren Verbrauch zu kennen, oder Sie laden direkt Ihre letzte Jahresabrechnung hoch. -->
