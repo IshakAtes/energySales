@@ -1,4 +1,4 @@
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
