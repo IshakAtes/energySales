@@ -1,13 +1,12 @@
-import { NgIf, NgStyle } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgStyle } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, NgIf, FormsModule, NgStyle],
+  imports: [RouterLink, FormsModule, NgStyle],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })

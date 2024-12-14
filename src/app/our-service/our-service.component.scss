@@ -92,6 +92,7 @@ section {
     background: linear-gradient(to right, #F2FA1B, #032c3e);
     color: ghostwhite;
     overflow: hidden;
+    display: none;
 
     &:hover {
         color: ghostwhite;
@@ -198,5 +199,6 @@ section {
     .cssbuttons-io {
         display: block;
         margin: 0 auto;
+        display: none;
     }
 }

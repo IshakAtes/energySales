@@ -1,9 +1,7 @@
 section {
     background-color: #083049;
     position: relative;
-    padding: 100px;
-    padding-top: 100px;
-    padding-bottom: 140px;
+    padding: 100px 100px 140px 100px;
     display: flex;
     justify-content: center;
     align-items: center ;
@@ -79,3 +77,57 @@ app-contact {
 
 
 // social Icons
+
+
+
+@media only screen and (max-width: 860px) {
+  section {
+    padding: 100px 40px 160px 40px;
+    flex-direction: column;
+  }
+
+  .leftCt {
+    align-items: center;
+    margin-bottom: 40px;
+
+    a {
+      margin-bottom: 10px;
+    }
+  }
+
+  .rightCt {
+    width: 50%;
+    justify-content: space-between;
+
+    a {
+      div {
+        margin-left: 0px;
+      }
+    }
+  }
+
+  .footerBanner {
+    height: 120px;
+    padding: 0 40px 0 40px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .officeHoursCt {
+    text-align: center;
+    padding-top: 20px;
+
+    p {
+      text-align: center;
+    }
+  }
+  
+}
+
+
+@media only screen and (max-width: 600px) {
+  .rightCt {
+    width: 100%;
+  }
+  
+}
