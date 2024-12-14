@@ -14,4 +14,9 @@ export class NavComponent {
   menuOpen = false;
   screenWidth = window.innerWidth <= 400;
 
+  closeMenu() {
+    setTimeout(() => {
+      this.menuOpen = false
+    }, 125)
+  }
 }

@@ -23,5 +23,7 @@
 class="visible navMenu">
     <a href="#" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Smartphone Verträge<br>(Comming Soon)</a>
     <a href="#" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Solarenergie<br>(Comming Soon)</a>
-    <a href="#formComponent" [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}">Kontakt</a>
+    <a href="#formComponent"
+        [ngStyle]="{'padding': menuOpen ? '20px 0px' : '0'}"
+        (click)="closeMenu()">Kontakt</a>
 </div>
