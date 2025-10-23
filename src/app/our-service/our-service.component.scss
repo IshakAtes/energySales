@@ -147,8 +147,17 @@ section {
         align-items: center;
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 0;
         gap: 0;
-        // width: 100%;
+    }
+
+    .heroPhoto {
+        overflow: hidden;
+
+        img {
+            width: 140%;
+            max-width: none;
+        }
     }
 
     .myServiceContainer {
@@ -200,5 +209,16 @@ section {
         display: block;
         margin: 0 auto;
         display: none;
+    }
+
+    .heroPhoto img {
+        width: 200%;
+    }
+}
+
+
+@media only screen and (max-width: 640px) {
+    .heroPhoto img {
+        width: 240%;
     }
 }
