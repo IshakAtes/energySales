@@ -28,7 +28,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PERSONAL_TOKEN }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build image
         run: |
@@ -53,4 +53,3 @@ jobs:
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
               ghcr.io/$OWNER_LC/energysales:latest
-              
