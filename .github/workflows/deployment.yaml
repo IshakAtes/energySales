@@ -32,11 +32,11 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t ghcr.io/${{ OWNER_LC }}/energy-sales:latest .
+          docker build -t ghcr.io/$OWNER_LC/energy-sales:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/${{ OWNER_LC }}/energy-sales:latest
+          docker push ghcr.io/$OWNER_LC/energy-sales:latest
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.1.0
@@ -45,10 +45,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.ENERGY_WEBSITE_KEY }}
           script: |
-            docker pull ghcr.io/${{ OWNER_LC }}/frontend:latest
+            docker pull ghcr.io/$OWNER_LC/frontend:latest
             docker stop frontend || true
             docker rm frontend || true
             docker run -d \
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
-              ghcr.io/${{ OWNER_LC }}/frontend:latest
+              ghcr.io/$OWNER_LC/frontend:latest
