@@ -21,7 +21,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: ${{ github.repository_owner,, }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build image
@@ -39,10 +39,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.ENERGY_WEBSITE_KEY }}
           script: |
-            docker pull ghcr.io/${{ github.repository_owner }}/frontend:latest
+            docker pull ghcr.io/${{ github.repository_owner,, }}/frontend:latest
             docker stop frontend || true
             docker rm frontend || true
             docker run -d \
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
-              ghcr.io/${{ github.repository_owner }}/frontend:latest
+              ghcr.io/${{ github.repository_owner,, }}/frontend:latest
