@@ -40,6 +40,8 @@ jobs:
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.1.0
+        env:
+          OWNER_LC: ${{ env.OWNER_LC }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
