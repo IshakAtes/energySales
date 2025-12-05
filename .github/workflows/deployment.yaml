@@ -46,8 +46,8 @@ jobs:
           key: ${{ secrets.ENERGY_WEBSITE_KEY }}
           script: |
             docker pull ghcr.io/$OWNER_LC/energysales:latest
-            docker stop frontend || true
-            docker rm frontend || true
+            docker stop energysales || true
+            docker rm energysales || true
             docker run -d \
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
