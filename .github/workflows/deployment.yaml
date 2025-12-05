@@ -48,7 +48,9 @@ jobs:
             docker pull ghcr.io/$OWNER_LC/energysales:latest
             docker stop energysales || true
             docker rm energysales || true
+
             docker run -d \
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
               ghcr.io/$OWNER_LC/energysales:latest
+              
