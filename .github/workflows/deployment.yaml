@@ -5,8 +5,6 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -14,11 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: set lower case owner name
+      - name: Convert owner to lowercase
         run: |
-          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
-        env:
-          OWNER: '${{ github.repository_owner }}'
+          echo "OWNER_LC=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Check out code
         uses: actions/checkout@v4
@@ -32,11 +28,11 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t ghcr.io/$OWNER_LC/energysales:latest .
+          docker build -t ghcr.io/${OWNER_LC}/energysales:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/$OWNER_LC/energysales:latest
+          docker push ghcr.io/${OWNER_LC}/energysales:latest
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.1.0
@@ -47,6 +43,9 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.ENERGY_WEBSITE_KEY }}
           script: |
+            echo "OWNER: $OWNER_LC"
+            echo "Pulling: ghcr.io/$OWNER_LC/energysales:latest"
+
             docker pull ghcr.io/$OWNER_LC/energysales:latest
             docker stop energysales || true
             docker rm energysales || true
