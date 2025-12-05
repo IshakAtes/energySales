@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Convert owner to lowercase
-        run: |
-          echo "OWNER_LC=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-
       - name: Check out code
         uses: actions/checkout@v4
 
@@ -28,29 +24,26 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t ghcr.io/${OWNER_LC}/energysales:latest .
+          docker build -t ghcr.io/ishak-ates/energysales:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/${OWNER_LC}/energysales:latest
+          docker push ghcr.io/ishak-ates/energysales:latest
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.1.0
-        env:
-          OWNER_LC: ${{ env.OWNER_LC }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.ENERGY_WEBSITE_KEY }}
           script: |
-            echo "OWNER: $OWNER_LC"
-            echo "Pulling: ghcr.io/$OWNER_LC/energysales:latest"
+            echo "Pulling: ghcr.io/ishak-ates/energysales:latest"
 
-            docker pull ghcr.io/$OWNER_LC/energysales:latest
+            docker pull ghcr.io/ishak-ates/energysales:latest
             docker stop energysales || true
             docker rm energysales || true
 
             docker run -d \
               -p ${{ secrets.PORT }}:80 \
               --name energysales \
-              ghcr.io/$OWNER_LC/energysales:latest
+              ghcr.io/ishak-ates/energysales:latest
